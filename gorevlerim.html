@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gözetmenlik Görevleri</title>
+<meta name="theme-color" content="#1f4e9c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Görevlerim">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231f4e9c'/%3E%3Crect x='24' y='22' width='52' height='60' rx='6' fill='%23fff'/%3E%3Crect x='33' y='36' width='34' height='5' rx='2' fill='%231f4e9c'/%3E%3Crect x='33' y='49' width='34' height='5' rx='2' fill='%231f4e9c'/%3E%3Crect x='33' y='62' width='22' height='5' rx='2' fill='%231f4e9c'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231f4e9c'/%3E%3Crect x='24' y='22' width='52' height='60' rx='6' fill='%23fff'/%3E%3Crect x='33' y='36' width='34' height='5' rx='2' fill='%231f4e9c'/%3E%3Crect x='33' y='49' width='34' height='5' rx='2' fill='%231f4e9c'/%3E%3Crect x='33' y='62' width='22' height='5' rx='2' fill='%231f4e9c'/%3E%3C/svg%3E">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #111;
+         background: #f4f6fa; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  .sayfa { max-width: 820px; margin: 16px auto; background: #fff; padding: 18px 20px; border-radius: 10px;
+           box-shadow: 0 2px 10px rgba(0,0,0,.07); }
+  form { display: flex; gap: 8px; margin-bottom: 12px; }
+  input { flex: 1; min-width: 0; font-size: 16px; padding: 10px 12px; border: 1px solid #cfd6e2; border-radius: 8px; }
+  input:focus { outline: 2px solid #3b82f6; border-color: transparent; }
+  button { font-size: 15px; font-weight: 600; padding: 10px 16px; border: 0; border-radius: 8px;
+           background: #1f4e9c; color: #fff; cursor: pointer; }
+  button:disabled { opacity: .6; }
+  .durum { font-size: 13px; color: #555; margin: 6px 0 10px; }
+  .durum.hata { color: #b91c1c; }
+  .oneri a { color: #1f4e9c; margin-right: 10px; cursor: pointer; text-decoration: underline; }
+  .bas { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+         border-bottom: 2px solid #1f4e9c; padding-bottom: 10px; margin-bottom: 10px; }
+  h1 { font-size: 20px; margin: 0; color: #1f4e9c; }
+  h2 { font-size: 14px; color: #1f4e9c; margin: 16px 0 4px; }
+  .alt { font-size: 12px; color: #555; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  td { padding: 5px 6px; border-bottom: 1px solid #e8ebf0; vertical-align: middle; }
+  .liste tr:nth-child(even) td, .ek tr:nth-child(even) td { background: #fafbfd; }
+  .yuk { width: auto; font-size: 12px; }
+  .yuk td { padding: 2px 8px; border-bottom: 1px solid #eef0f4; }
+  .yuk th { font-size: 10px; color: #888; font-weight: 600; text-align: right; padding: 0 8px; }
+  .yuk th:first-child { text-align: left; }
+  .yuk .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .yuk tr.top td { font-weight: 700; border-top: 1.5px solid #1f4e9c; border-bottom: none; }
+  .yuk tr.top td.vurgu { color: #1f4e9c; font-size: 14px; }
+  .liste tr.hafta td { background: #eef3fb !important; color: #1f4e9c; font-weight: 700; font-size: 12px;
+                       padding: 4px 6px; border-bottom: 1px solid #c9d7ef; }
+  .liste tr.hafta:not(:first-child) td { border-top: 8px solid #fff; }
+  .t { white-space: nowrap; font-weight: 700; width: 110px; }
+  .g { font-weight: 400; color: #666; font-size: 11px; }
+  .s { white-space: nowrap; width: 90px; font-variant-numeric: tabular-nums; }
+  .y { white-space: nowrap; width: 90px; font-weight: 600; color: #1f4e9c; }
+  .h { color: #666; font-size: 12px; }
+  .r { width: 34px; text-align: right; }
+  .k { font-weight: 600; width: 110px; } .tur { color: #444; }
+  .rz { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 8px; color: #fff; }
+  .rz.md { background: #b45309; } .rz.hs { background: #7c3aed; }
+  .adet { font-size: 11px; color: #888; }
+  tr.gecmis td { color: #9aa0a6; } tr.gecmis .y { color: #9aa0a6; } tr.gecmis .rz { opacity: .5; }
+  tr.bugun td { background: #fff1f1 !important; } tr.bugun .t::after { content: " ●"; color: #dc2626; }
+  .not { font-size: 10px; color: #888; margin-top: 10px; }
+  /* Telefon: tablo satırlarını iki satırlık kartlara çevir */
+  @media (max-width: 560px) {
+    .sayfa { margin: 0; border-radius: 0; padding: 14px 12px; box-shadow: none; }
+    .liste tr:not(.hafta) { display: grid; grid-template-columns: auto auto 1fr auto;
+                            column-gap: 10px; padding: 6px 4px; border-bottom: 1px solid #e8ebf0; }
+    .liste tr:nth-child(even):not(.hafta) { background: #fafbfd; }
+    .liste tr.bugun { background: #fff1f1; }
+    .liste tr:not(.hafta) td { border: 0; padding: 1px 0; background: transparent !important; width: auto; }
+    .liste td.d { grid-column: 1 / -1; font-size: 13px; }
+    .liste td.r { grid-row: 1; grid-column: 4; }
+    .liste tr.hafta { display: block; } .liste tr.hafta td { display: block; }
+    .bas { flex-direction: column; gap: 8px; }
+  }
+  @media print { body { background: #fff; } form, .durum { display: none; }
+    .sayfa { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="sayfa">
+  <form id="form">
+    <input id="isim" type="search" placeholder="Ad Soyad (ör. Hulusi Önal)" autocomplete="off" list="isimler" enterkeyhint="search">
+    <datalist id="isimler"></datalist>
+    <button id="btn" type="submit">Göster</button>
+  </form>
+  <div id="durum" class="durum">Tablo yükleniyor…</div>
+  <div id="sonuc"></div>
+</div>
+
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSgwo3jBE4k_zBkcl97ldCMVISJKPhJ3tW8Y2L2RP-k1E0H217W0QK3nTN8xa7hHmjJWzm0n_MAgQl_/pub?gid=0&single=true&output=csv";
+const DONEM_ILK_YIL = 2026;  // Güz: Ağustos-Aralık bu yıl, Ocak-Temmuz sonraki yıl
+const AGIRLIK = { "": 1, "MD": 1.5, "HS": 2 };
+const TUR_ADI = { "": "Normal", "MD": "Akşam (MD)", "HS": "Hafta sonu (HS)" };
+const AYLAR = ["ocak","şubat","mart","nisan","mayıs","haziran","temmuz","ağustos","eylül","ekim","kasım","aralık"];
+const AY_ADI = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+const GUN_KISA = { "pazartesi":"Pzt","salı":"Sal","çarşamba":"Çar","perşembe":"Per","cuma":"Cum","cumartesi":"Cmt","pazar":"Paz" };
+const VARSAYILAN = { crn:0, kod:1, ders:2, hoca:3, tarih:5, gun:6, saat:8, bina:9, sinif:10, gozetmen:11 };
+
+let TUM = [];
+
+// ---------------------------------------------------------------- yardımcılar
+const trLower = s => (s || "").replace(/İ/g, "i").replace(/I/g, "ı").toLocaleLowerCase("tr").replace(/\s+/g, " ").trim();
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const sayiBicim = x => String(x).replace(".", ",");
+
+function csvParse(metin) {
+  const satirlar = []; let satir = [], hucre = "", tirnak = false;
+  for (let i = 0; i < metin.length; i++) {
+    const c = metin[i];
+    if (tirnak) {
+      if (c === '"') { if (metin[i + 1] === '"') { hucre += '"'; i++; } else tirnak = false; }
+      else hucre += c;
+    } else if (c === '"') tirnak = true;
+    else if (c === ",") { satir.push(hucre); hucre = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && metin[i + 1] === "\n") i++;
+      satir.push(hucre); satirlar.push(satir); satir = []; hucre = "";
+    } else hucre += c;
+  }
+  if (hucre || satir.length) { satir.push(hucre); satirlar.push(satir); }
+  return satirlar;
+}
+
+function isimAyir(hucre) {
+  const sonuc = [];
+  for (let p of (hucre || "").split(/[,\n/;]+/)) {
+    p = p.trim();
+    if (!p || p === "-") continue;
+    const m = p.match(/^(.*?)\s*(?:\(\s*(MD|HS)\s*\))?\s*$/i);
+    if (m && m[1]) sonuc.push([m[1].trim(), (m[2] || "").toUpperCase()]);
+  }
+  return sonuc;
+}
+
+function tarihCoz(metin) {
+  const m = (metin || "").match(/(\d{1,2})\s+([^\s\d]+)/);
+  if (!m) return null;
+  const ay = AYLAR.indexOf(trLower(m[2]));
+  if (ay < 0) return null;
+  const yil = ay >= 7 ? DONEM_ILK_YIL : DONEM_ILK_YIL + 1;
+  return new Date(yil, ay, parseInt(m[1], 10));
+}
+
+function saatBicim(metin) {
+  const s = [...(metin || "").matchAll(/(\d{1,2})[:.]?(\d{2})/g)].map(m => m[1].padStart(2, "0") + ":" + m[2]);
+  return s.length ? [s[0], s[1] || ""] : [(metin || "").trim(), ""];
+}
+
+function yerMetni(g) {
+  if (trLower(g.sinif) === "genel") return `${g.bina} · Genel`;
+  if (!g.sinif || trLower(g.bina) === trLower(g.sinif)) return g.bina || g.sinif;
+  return `${g.bina} ${g.sinif}`.trim();
+}
+
+// ---------------------------------------------------------------- tabloyu çözümle
+function sutunlariBul(baslik) {
+  const s = { ...VARSAYILAN };
+  const es = { "crn":"crn", "öğretim üyesi":"hoca", "tarih":"tarih", "gün":"gun", "saat":"saat",
+               "bina":"bina", "sınıf":"sinif", "gözetmen":"gozetmen" };
+  baslik.forEach((h, i) => { const n = trLower(h); if (es[n]) s[es[n]] = i; else if (n.includes("ders adı")) s.ders = i; });
+  return s;
+}
+
+function gorevleriCikar(metin) {
+  const gorevler = [];
+  let sutun = null, hafta = "", ust = null, bolum = "";
+  const al = (satir, k) => (sutun[k] != null && sutun[k] < satir.length ? satir[sutun[k]].trim() : "");
+
+  for (const satir of csvParse(metin)) {
+    if (!satir.some(h => h.trim())) continue;
+    if (trLower(satir[0]) === "crn") {
+      sutun = sutunlariBul(satir);
+      hafta = `${(satir[1] || "").trim()} ${(satir[2] || "").split("/")[0].trim()}`.trim();
+      ust = null;
+      continue;
+    }
+    if (!sutun) {  // sayfanın başı: Ara Dönem / Ek Görevler listeleri
+      const hucre = (satir.find(h => h.trim()) || "").trim();
+      const n = trLower(hucre);
+      if (n.startsWith("ara dönem")) bolum = "Ara Dönem";
+      else if (n.startsWith("ek görev")) bolum = "Ek Görev";
+      else if (bolum) for (const [isim, etiket] of isimAyir(hucre))
+        gorevler.push({ isim, etiket, kategori: bolum, ders: "", hoca: "", tarih: null, tarihMetin: "",
+                        gun: "", saat: "", bina: "", sinif: "", hafta: "", kod: "" });
+      continue;
+    }
+    const tm = al(satir, "tarih");
+    if (tm || al(satir, "kod") || al(satir, "ders")) {
+      ust = { kod: al(satir, "kod"), ders: al(satir, "ders"), hoca: al(satir, "hoca"), tarihMetin: tm,
+              tarih: tarihCoz(tm), gun: al(satir, "gun"), saat: al(satir, "saat"), bina: al(satir, "bina"),
+              sinif: al(satir, "sinif"), hafta, kategori: "Sınav" };
+    }
+    if (!ust) continue;
+    const sinif = al(satir, "sinif") || ust.sinif;
+    const bina = al(satir, "bina") || ust.bina;
+    for (const [isim, etiket] of isimAyir(al(satir, "gozetmen")))
+      gorevler.push({ ...ust, isim, etiket, sinif, bina });
+  }
+  return gorevler;
+}
+
+function kisininGorevleri(aranan) {
+  const hedef = trLower(aranan), tekil = new Map();
+  let i = 0;
+  for (const g of TUM) {
+    if (trLower(g.isim) !== hedef) continue;
+    if (g.kategori !== "Sınav") { tekil.set("ek" + i++, { ...g, adet: 1 }); continue; }
+    const k = [g.tarihMetin, g.saat, g.kod, g.ders, g.sinif, g.etiket].join("|");
+    if (tekil.has(k)) tekil.get(k).adet++; else tekil.set(k, { ...g, adet: 1 });
+  }
+  return [...tekil.values()].sort((a, b) =>
+    (a.kategori !== "Sınav") - (b.kategori !== "Sınav") ||
+    (a.tarih ? a.tarih.getTime() : 9e15) - (b.tarih ? b.tarih.getTime() : 9e15) ||
+    saatBicim(a.saat)[0].localeCompare(saatBicim(b.saat)[0]));
+}
+
+// ---------------------------------------------------------------- görünüm
+function goster(isim) {
+  const gorevler = kisininGorevleri(isim);
+  const sonuc = document.getElementById("sonuc");
+  if (!gorevler.length) {
+    const isimler = [...new Set(TUM.map(g => g.isim))];
+    const h = trLower(isim);
+    const oneri = isimler.filter(n => trLower(n).split(" ").some(p => h.split(" ").some(k => k.length > 2 && p.startsWith(k.slice(0, 3)))))
+                         .slice(0, 6);
+    sonuc.innerHTML = "";
+    durum(`“${esc(isim)}” için görev bulunamadı.` +
+      (oneri.length ? ` <span class="oneri">Bunu mu demek istediniz: ${oneri.map(o => `<a data-isim="${esc(o)}">${esc(o)}</a>`).join("")}</span>` : ""), true);
+    document.querySelectorAll(".oneri a").forEach(a => a.onclick = () => { document.getElementById("isim").value = a.dataset.isim; goster(a.dataset.isim); });
+    return;
+  }
+  const gorunen = gorevler[0].isim;
+  try { localStorage.setItem("gozetmen_isim", gorunen); } catch (e) {}
+  const bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+  const rozet = e => e ? `<span class="rz ${e.toLowerCase()}">${e}</span>` : "";
+
+  const sinav = [], ek = [];
+  let oncekiHafta = null;
+  for (const g of gorevler) {
+    if (g.kategori !== "Sınav") {
+      ek.push(`<tr><td class="k">${esc(g.kategori)}</td><td class="tur">${TUR_ADI[g.etiket]}</td><td class="r">${rozet(g.etiket)}</td></tr>`);
+      continue;
+    }
+    if (g.hafta !== oncekiHafta) {
+      oncekiHafta = g.hafta;
+      sinav.push(`<tr class="hafta"><td colspan="5">${esc(g.hafta || "Diğer")}</td></tr>`);
+    }
+    const [bas, bit] = saatBicim(g.saat);
+    const sinif = g.tarih && g.tarih < bugun ? "gecmis" : (g.tarih && g.tarih.getTime() === bugun.getTime() ? "bugun" : "");
+    const tarih = g.tarih ? `${g.tarih.getDate()} ${AY_ADI[g.tarih.getMonth()]}` : g.tarihMetin;
+    const gun = GUN_KISA[trLower(g.gun)] || g.gun.slice(0, 3);
+    const adet = g.adet > 1 ? ` <span class="adet">×${g.adet}</span>` : "";
+    sinav.push(`<tr class="${sinif}"><td class="t">${esc(tarih)} <span class="g">${esc(gun)}</span></td>` +
+      `<td class="s">${esc(bas)}${bit ? "–" + esc(bit) : ""}</td><td class="y">${esc(yerMetni(g))}</td>` +
+      `<td class="d">${esc(g.ders)}${adet}${g.hoca ? ` <span class="h">· ${esc(g.hoca)}</span>` : ""}</td>` +
+      `<td class="r">${rozet(g.etiket)}</td></tr>`);
+  }
+
+  let toplamSayi = 0, toplamAgirlik = 0;
+  const yuk = ["", "MD", "HS"].map(t => {
+    const sayi = gorevler.filter(g => g.etiket === t).reduce((a, g) => a + g.adet, 0);
+    const ag = sayi * AGIRLIK[t]; toplamSayi += sayi; toplamAgirlik += ag;
+    return `<tr><td>${TUR_ADI[t]}</td><td class="n">${sayi}</td><td class="n">×${sayiBicim(AGIRLIK[t])}</td><td class="n">${sayiBicim(ag)}</td></tr>`;
+  }).join("");
+  const kalan = gorevler.filter(g => g.tarih && g.tarih >= bugun).length;
+  const sinavSayisi = gorevler.filter(g => g.kategori === "Sınav").length;
+
+  sonuc.innerHTML = `
+    <div class="bas">
+      <div><h1>${esc(gorunen)}</h1>
+        <div class="alt">EHMB 2026-2027 Güz · Gözetmenlik görevleri</div>
+        <div class="alt">Kalan sınav görevi (bugün dahil): <b>${kalan}</b></div></div>
+      <table class="yuk">
+        <tr><th></th><th>Sayı</th><th>Katsayı</th><th>Ağırlık</th></tr>${yuk}
+        <tr class="top"><td>Toplam</td><td class="n">${toplamSayi}</td><td></td><td class="n vurgu">${sayiBicim(toplamAgirlik)}</td></tr>
+      </table>
+    </div>
+    <h2>Sınav görevleri (${sinavSayisi})</h2>
+    <table class="liste">${sinav.join("") || '<tr><td>Sınav görevi yok.</td></tr>'}</table>
+    ${ek.length ? `<h2>Ara dönem ve ek görevler (${ek.length})</h2><table class="ek">${ek.join("")}</table>` : ""}
+    <div class="not">Ağırlık: Normal ×1 · Akşam (MD) ×1,5 · Hafta sonu (HS) ×2. Soluk satırlar geçmiş görevlerdir, ● bugünü gösterir.</div>`;
+  durum(`Tablo güncel · ${new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })}`);
+}
+
+function durum(html, hata = false) {
+  const d = document.getElementById("durum");
+  d.innerHTML = html; d.className = "durum" + (hata ? " hata" : "");
+}
+
+async function yukle() {
+  const btn = document.getElementById("btn");
+  btn.disabled = true;
+  durum("Tablo yükleniyor…");
+  try {
+    const r = await fetch(CSV_URL + "&_=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    TUM = gorevleriCikar(await r.text());
+    const isimler = [...new Set(TUM.map(g => g.isim))].sort((a, b) => a.localeCompare(b, "tr"));
+    document.getElementById("isimler").innerHTML = isimler.map(n => `<option value="${esc(n)}">`).join("");
+    durum(`Tablo yüklendi · ${isimler.length} kişi`);
+    let kayitli = ""; try { kayitli = localStorage.getItem("gozetmen_isim") || ""; } catch (e) {}
+    const giris = document.getElementById("isim");
+    if (!giris.value && kayitli) giris.value = kayitli;
+    if (giris.value.trim()) goster(giris.value.trim());
+  } catch (e) {
+    durum("Tablo indirilemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin. (" + esc(e.message) + ")", true);
+  } finally { btn.disabled = false; }
+}
+
+document.getElementById("form").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const isim = document.getElementById("isim").value.trim();
+  if (!isim) return;
+  if (!TUM.length) { yukle(); return; }
+  goster(isim);
+  document.getElementById("isim").blur();
+});
+yukle();
+</script>
+</body>
+</html>
